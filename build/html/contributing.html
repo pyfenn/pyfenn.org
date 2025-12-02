@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contribution Guide &mdash; fenn 0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=e031e9a9"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Experiment tracking with Weights &amp; Biases (W&amp;B) in FENN" href="features/wandb.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            fenn
+          </a>
+              <div class="version">
+                0.0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/index.html">Features</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contributions</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Contribution Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#initial-checks">Initial Checks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#basic-git-workflow">Basic Git Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#making-changes">Making Changes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#opening-a-pull-request-pr">Opening a Pull Request (PR)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#submitting-a-pr">Submitting a PR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reporting-issues-and-getting-help">Reporting Issues and Getting Help</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">fenn</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Contribution Guide</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/contributing.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="contribution-guide">
+<h1>Contribution Guide<a class="headerlink" href="#contribution-guide" title="Permalink to this heading"></a></h1>
+<p>Welcome to the <strong>fenn</strong> project!
+This guide explains how to prepare your changes, work with Git, and open good pull requests.</p>
+<section id="initial-checks">
+<h2>Initial Checks<a class="headerlink" href="#initial-checks" title="Permalink to this heading"></a></h2>
+<p>Before you start coding, read the main <code class="docutils literal notranslate"><span class="pre">README.md</span></code> and the <a class="reference external" href="https://pyfenn.org/">documentation</a> to understand the project goals, basic usage, and current roadmap.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you are unsure what to work on or want feedback on an idea, start a conversation on the project’s Discord server or in the GitHub discussion thread linked from the README so the maintainers can help you scope a useful contribution.</p>
+</div>
+<p>Whenever possible, prefer small, focused changes over very large pull requests.
+If you plan a bigger feature or refactor, discuss it first to confirm that it fits the project direction.</p>
+</section>
+<section id="basic-git-workflow">
+<h2>Basic Git Workflow<a class="headerlink" href="#basic-git-workflow" title="Permalink to this heading"></a></h2>
+<p>If you are new to Git and GitHub, the steps below describe a simple way to contribute:</p>
+<ol class="arabic simple">
+<li><p>Fork the repository to your own GitHub account.</p></li>
+<li><p>Clone your fork locally: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/&lt;your-username&gt;/fenn.git</span></code></p></li>
+<li><p>Create a new branch for your work: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">-b</span> <span class="pre">feature</span></code></p></li>
+<li><p>Make and test your changes.</p></li>
+<li><p>Stage your changes: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">&lt;files&gt;</span></code></p></li>
+<li><p>Commit with a clear message: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">-m</span> <span class="pre">&quot;Describe</span> <span class="pre">your</span> <span class="pre">change&quot;</span></code></p></li>
+<li><p>Push your branch: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">origin</span> <span class="pre">feature</span></code></p></li>
+<li><p>Open a pull request from your branch into the main <code class="docutils literal notranslate"><span class="pre">fenn</span></code> repository.</p></li>
+</ol>
+<p>Try to keep each branch focused on a single issue or feature so that reviews are easier.</p>
+</section>
+<section id="making-changes">
+<h2>Making Changes<a class="headerlink" href="#making-changes" title="Permalink to this heading"></a></h2>
+<p>When you make changes, aim to:</p>
+<ul class="simple">
+<li><p>Follow the existing code style and structure where possible.</p></li>
+<li><p>Add or update tests and documentation if your change affects behavior or public APIs.</p></li>
+<li><p>Keep commits logically grouped (for example, separate “refactor” from “new feature” where it makes sense).</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>In order to test your changes, you need to reinstall <code class="docutils literal notranslate"><span class="pre">fenn</span></code> locally in editable mode by running:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install -e .</span>
+</pre></div>
+</div>
+<p>from the base project directory (the one containing the project <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> file).</p>
+</div>
+<section id="opening-a-pull-request-pr">
+<h3>Opening a Pull Request (PR)<a class="headerlink" href="#opening-a-pull-request-pr" title="Permalink to this heading"></a></h3>
+<p>Once your branch is ready:</p>
+<ul class="simple">
+<li><p>Ensure the project runs as expected (and tests pass, if available).</p></li>
+<li><p><strong>Rebase or merge the latest default branch into your branch to resolve conflicts before opening the PR.</strong></p></li>
+<li><p>Push your final changes and prepare to open a pull request.</p></li>
+</ul>
+</section>
+<section id="submitting-a-pr">
+<h3>Submitting a PR<a class="headerlink" href="#submitting-a-pr" title="Permalink to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>From your fork on GitHub, use the “Compare &amp; pull request” button to create a PR.</p></li>
+<li><p>Use a clear, descriptive title and fill out the PR description so reviewers understand what you changed and why.</p></li>
+<li><p>If you are working on a labeled issue (for example, “good first issue”), reference the issue number in the PR description (for example, “Fixes #123”).</p></li>
+<li><p>Submit the PR and respond to review comments; you may be asked to adjust code, tests, or documentation before merge.</p></li>
+</ol>
+</section>
+<section id="reporting-issues-and-getting-help">
+<h3>Reporting Issues and Getting Help<a class="headerlink" href="#reporting-issues-and-getting-help" title="Permalink to this heading"></a></h3>
+<p>If you find a bug or have a feature request but do not plan to implement it yourself:</p>
+<ul class="simple">
+<li><p>Open a GitHub issue with a clear description of the problem or idea.</p></li>
+<li><p>For bugs, describe the expected behavior, the actual behavior, and how to reproduce it (include versions and environment details when possible).</p></li>
+<li><p>For feature requests, explain the use case and how it would benefit fenn users.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you need guidance at any point, use the Discord server or the GitHub discussion thread to ask questions and coordinate with maintainers and other contributors.</p>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="features/wandb.html" class="btn btn-neutral float-left" title="Experiment tracking with Weights &amp; Biases (W&amp;B) in FENN" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, blkdmr.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

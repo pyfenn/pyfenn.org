@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Logger &mdash; fenn 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=e031e9a9"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Experiment tracking with Weights &amp; Biases (W&amp;B) in FENN" href="wandb.html" />
+    <link rel="prev" title="Configuration" href="configuration.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            fenn
+          </a>
+              <div class="version">
+                0.0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quickstart</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Features</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="configuration.html">Configuration</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Logger</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#initialization">Initialization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#log-file-behavior">Log file behavior</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="wandb.html">Experiment tracking with Weights &amp; Biases (W&amp;B) in FENN</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contributions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contribution Guide</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">fenn</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Features</a></li>
+      <li class="breadcrumb-item active">Logger</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/features/logger.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="logger">
+<h1>Logger<a class="headerlink" href="#logger" title="Permalink to this heading"></a></h1>
+<p>The <code class="docutils literal notranslate"><span class="pre">Logger</span></code> class centralizes console logging, file logging, and optional Weights &amp; Biases (WandB) tracking for a FENN session, using the same configuration dictionary loaded from your YAML file. It automatically captures all <code class="docutils literal notranslate"><span class="pre">print</span></code> output, writes a clean, timestamped version to disk, and keeps output in the terminal for interactive use.</p>
+<section id="initialization">
+<h2>Initialization<a class="headerlink" href="#initialization" title="Permalink to this heading"></a></h2>
+<p>In normal usage, the logger is created and managed internally by FENN. Users do not need to import <code class="docutils literal notranslate"><span class="pre">Logger</span></code>, instantiate it, or call its methods directly; it is automatically initialized at the beginning of a FENN run based on the configuration loaded from <code class="docutils literal notranslate"><span class="pre">fenn.yaml</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The configuration dictionary is expected to contain at least:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">project</span></code>: the project name used in the log filename and optional WandB project.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">session_id</span></code>: a unique identifier for the current run, used in the log filename and as the WandB run name.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">logger.dir</span></code>: directory where the log file will be created (it is created automatically if missing).</p></li>
+</ul>
+</div></blockquote>
+</div>
+</section>
+<section id="log-file-behavior">
+<h2>Log file behavior<a class="headerlink" href="#log-file-behavior" title="Permalink to this heading"></a></h2>
+<p>When FENN starts a run, the logger:</p>
+<ul class="simple">
+<li><p>Creates or empties a log file named <code class="docutils literal notranslate"><span class="pre">&lt;project&gt;_&lt;session_id&gt;.log</span></code> inside <code class="docutils literal notranslate"><span class="pre">logger.dir</span></code>.</p></li>
+<li><p>Prints a short, status line to the console indicating the log file name and directory.</p></li>
+<li><p>Replaces the built-in <a class="reference external" href="https://docs.python.org/3/library/functions.html#print" title="(in Python v3.14)"><code class="xref py py-func docutils literal notranslate"><span class="pre">print()</span></code></a> with an internal wrapper so that all subsequent <code class="docutils literal notranslate"><span class="pre">print(...)</span></code> calls are intercepted.</p></li>
+</ul>
+<p>Example of a log file named <code class="docutils literal notranslate"><span class="pre">&lt;project&gt;_&lt;session_id&gt;.log</span></code>:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[2025-11-25 08:48:04] project: project_name
+[2025-11-25 08:48:04] training/device: cuda/cpu
+[2025-11-25 08:48:04] training/seed: seed
+[2025-11-25 08:48:04] training/epochs: n_epochs
+[2025-11-25 08:48:04] training/learning_rate: lr
+[2025-11-25 08:48:04] training/weight_decay: wd
+[2025-11-25 08:48:04] training/train_batch: batch_size
+[2025-11-25 08:48:04] training/test_batch: batch_size
+[2025-11-25 08:48:04] logger/dir: logger
+[2025-11-25 08:48:04] logger/use_wandb: True
+[2025-11-25 08:48:04] wandb/key: your_wandb_key
+[2025-11-25 08:48:04] wandb/entity: your_wandb_account
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="configuration.html" class="btn btn-neutral float-left" title="Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="wandb.html" class="btn btn-neutral float-right" title="Experiment tracking with Weights &amp; Biases (W&amp;B) in FENN" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, blkdmr.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

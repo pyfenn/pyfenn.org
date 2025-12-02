@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quickstart &mdash; fenn 0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=e031e9a9"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Features" href="features/index.html" />
+    <link rel="prev" title="Introduction" href="introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            fenn
+          </a>
+              <div class="version">
+                0.0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User guide</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#basic-usage-steps">Basic Usage Steps</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#initialize-a-project">1. Initialize a Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#write-your-code">2. Write Your Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#run-it">4. Run It</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="features/index.html">Features</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contributions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contribution Guide</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">fenn</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Quickstart</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/quickstart.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="quickstart">
+<h1>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this heading"></a></h1>
+<p>This section provides a guided overview of setting up FENN in a new environment, defining a minimal project structure, and executing an initial experiment through a configuration-driven entrypoint. By the end of this section, you will have a functioning Python script that relies on <code class="docutils literal notranslate"><span class="pre">fenn.yaml</span></code> for configuration rather than hardcoded parameters.</p>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
+<p>FENN is distributed as a standard Python package and can be installed from PyPI.
+It is recommended to use a virtual environment (<code class="docutils literal notranslate"><span class="pre">venv</span></code> or <code class="docutils literal notranslate"><span class="pre">conda</span></code>) to keep your project dependencies isolated.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>fenn
+</pre></div>
+</div>
+</section>
+<section id="basic-usage-steps">
+<h2>Basic Usage Steps<a class="headerlink" href="#basic-usage-steps" title="Permalink to this heading"></a></h2>
+<p>The typical FENN workflow is:</p>
+<ol class="arabic simple">
+<li><p>Generate a project skeleton and configuration file.</p></li>
+<li><p>Implement your training logic using the FENN entrypoint.</p></li>
+<li><p>Run the script as a normal Python module while FENN takes care of configuration
+parsing, logging, and integration with external tools.</p></li>
+</ol>
+<section id="initialize-a-project">
+<h3>1. Initialize a Project<a class="headerlink" href="#initialize-a-project" title="Permalink to this heading"></a></h3>
+<p>Run the CLI tool to generate a template and config file in the current directory.
+This will usually create a basic <code class="docutils literal notranslate"><span class="pre">main.py</span></code> script and a default <code class="docutils literal notranslate"><span class="pre">fenn.yaml</span></code> file.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>fenn<span class="w"> </span>init
+</pre></div>
+</div>
+<p>After running this command, you can immediately open the generated files and adapt them to your model, dataset, and training loop.
+You can configure the <code class="docutils literal notranslate"><span class="pre">fenn.yaml</span></code> file with the hyperparameters and options for your project. The structure of the <code class="docutils literal notranslate"><span class="pre">fenn.yaml</span></code> file is:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># ---------------------------------------</span>
+<span class="c1"># FENN Configuration (Modify Carefully)</span>
+<span class="c1"># ---------------------------------------</span>
+
+<span class="nt">project</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">project_name</span>
+
+<span class="nt">logger</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">logger</span>
+
+<span class="nt">wandb</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">entity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">your_wandb_account</span>
+
+<span class="nt">seed</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">seed</span>
+<span class="nt">device</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;cpu&#39;</span><span class="l l-Scalar l-Scalar-Plain">/&#39;cuda&#39;</span>
+
+<span class="nt">training</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">epochs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">n_epochs</span>
+<span class="w">    </span><span class="nt">lr</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lr</span>
+<span class="w">    </span><span class="nt">weight_decay</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wd</span>
+<span class="w">    </span><span class="nt">batch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">batch_size</span>
+
+<span class="nt">testing</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">batch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">batch_size</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can add new sections as needed (for example, <code class="docutils literal notranslate"><span class="pre">model</span></code>, <code class="docutils literal notranslate"><span class="pre">optimizer</span></code>, <code class="docutils literal notranslate"><span class="pre">scheduler</span></code>) and access them via the same keys in <code class="docutils literal notranslate"><span class="pre">args</span></code>. This makes it easy to manage multiple experiments by maintaining different YAML files.</p>
+</div>
+<p>Set your WANDB API key in the <code class="docutils literal notranslate"><span class="pre">.env</span></code> file.</p>
+</section>
+<section id="write-your-code">
+<h3>2. Write Your Code<a class="headerlink" href="#write-your-code" title="Permalink to this heading"></a></h3>
+<p>You can work on the <code class="docutils literal notranslate"><span class="pre">main.py</span></code> script to create your project. Use the <code class="docutils literal notranslate"><span class="pre">&#64;app.entrypoint</span></code> decorator. Your configuration variables are automatically passed via <code class="docutils literal notranslate"><span class="pre">args</span></code> as a nested dictionary that mirrors the structure of <code class="docutils literal notranslate"><span class="pre">fenn.yaml</span></code>.
+Inside <code class="docutils literal notranslate"><span class="pre">main</span></code>, you never hardcode hyperparameters; instead, you read them from <code class="docutils literal notranslate"><span class="pre">args</span></code> so that experiments can be reproduced or changed just by editing YAML.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">fenn</span><span class="w"> </span><span class="kn">import</span> <span class="n">FENN</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FENN</span><span class="p">()</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">entrypoint</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+    <span class="c1"># &#39;args&#39; contains your fenn.yaml configurations</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Training with learning rate: </span><span class="si">{</span><span class="n">args</span><span class="p">[</span><span class="s1">&#39;training&#39;</span><span class="p">][</span><span class="s1">&#39;lr&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Your logic here...</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="run-it">
+<h3>4. Run It<a class="headerlink" href="#run-it" title="Permalink to this heading"></a></h3>
+<p>Once the code and configuration are in place, you can start an experiment by
+running your entrypoint script as a normal Python program:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>main.py
+</pre></div>
+</div>
+<p>During execution, FENN will:</p>
+<ul class="simple">
+<li><p>Parse <code class="docutils literal notranslate"><span class="pre">fenn.yaml</span></code> and inject its contents into <code class="docutils literal notranslate"><span class="pre">args</span></code>.</p></li>
+<li><p>Initialize logging so that standard output and configuration are captured.</p></li>
+<li><p>Optionally connect to remote trackers (for example, WandB) if enabled in the config.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="introduction.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="features/index.html" class="btn btn-neutral float-right" title="Features" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, blkdmr.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
